@@ -1,0 +1,88 @@
+$texto: #ECEFF4;
+
+html{
+  color: $texto;
+  height: 100%;
+  display: flex;
+  background-color: #292E39 ;
+}
+
+body{
+  width: 100%;
+  margin: auto;
+}
+
+.App{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+.todo-list{
+  background-color: #2E3440;
+  font-size: 1.2em;
+  max-width: 350px;
+  margin: auto;
+  margin-bottom: 1.6em;
+  padding: .5em 1em;
+  box-shadow: .3em .5em .5em #11111155;
+  border-radius: .8em;
+}
+
+$colorFrost: #5E81AC;
+$colorHoverFrost: #7896ba;
+$colorActiveFrost: #4e6f97;
+
+@mixin button($class, $color, $colorHover, $colorActive){
+  .button.#{$class}{background: $color ;}
+  .button.#{$class}:hover{background: $colorHover ;}
+  .button.#{$class}:active{background: $colorActive ;}
+}
+.button{
+  border-color: #1112;
+  border-radius: .7em;
+  margin: .5em;
+}
+
+.todo{
+  width: 300px;
+  margin:auto;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid transparent; //Creas el borde
+  border-image: radial-gradient(#4C566A, #2E3440 ).5  ; //agregas el gradiente a las esquinas
+  
+}
+
+
+input{
+  background-color: #3B4252;
+  border-radius: .6em;
+  border-style: none;
+  padding: .2em;
+  color: $texto;
+  font-size: 1.1em;
+}
+
+input:focus{
+  background-color: #4C566A;
+  color: $texto;
+  outline: none;
+}
+
+.todo.new-item{
+  opacity: 0;
+  transform: scale(.6);
+  animation: fadeIn .3s linear forwards;
+}
+
+@keyframes fadeIn{
+  to{
+    transform:scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+@include button ('blue', $colorFrost, $colorHoverFrost, $colorActiveFrost)
